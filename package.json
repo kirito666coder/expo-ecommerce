@@ -6,11 +6,24 @@
     "backend",
     "mobile"
   ],
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+
+    "lint:web": "eslint apps/web",
+    "lint:mobile": "eslint apps/mobile",
+    "lint:server": "eslint packages/server",
+
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.3",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@typescript-eslint/parser": "^8.56.1",
     "eslint": "^9.39.3",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
     "husky": "^9.1.7",
     "lint-staged": "^16.3.2",

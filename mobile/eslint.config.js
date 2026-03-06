@@ -1,10 +1,26 @@
-// https://docs.expo.dev/guides/using-eslint/
-const { defineConfig } = require('eslint/config');
-const expoConfig = require('eslint-config-expo/flat');
+import { defineConfig } from 'eslint/config';
+import expoConfig from 'eslint-config-expo/flat';
+import base from "../eslint.base.mjs";
 
-module.exports = defineConfig([
-  expoConfig,
+export default defineConfig([
+  ...base, // shared rules
+
+  ...expoConfig, // expo / react-native rules
+
   {
-    ignores: ['dist/*'],
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    rules: {
+      // Expo / RN specific overrides
+      'react/react-in-jsx-scope': 'off', // not needed in RN
+      'no-console': ['warn', { allow: ['warn', 'error'] }]
+    }
   },
+
+  {
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      '.expo/**'
+    ]
+  }
 ]);
