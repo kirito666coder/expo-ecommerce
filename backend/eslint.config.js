@@ -8,12 +8,12 @@ export default [
       globals: {
         process: 'readonly',
         Buffer: 'readonly',
-        console: 'readonly'
-      }
+        console: 'readonly',
+      },
     },
     rules: {
-      'no-console': 'off'
-    }
+      'no-console': 'off',
+    },
   },
   {
     files: ['tests/**/*.{js,ts}'],
@@ -22,8 +22,8 @@ export default [
         describe: 'readonly',
         it: 'readonly',
         expect: 'readonly',
-        jest: 'readonly'
-      }
-    }
-  }
+        jest: 'readonly',
+      },
+    },
+  },
 ];

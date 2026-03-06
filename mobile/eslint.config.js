@@ -1,6 +1,6 @@
 import { defineConfig } from 'eslint/config';
 import expoConfig from 'eslint-config-expo/flat';
-import base from "../eslint.base.mjs";
+import base from '../eslint.base.mjs';
 
 export default defineConfig([
   ...base, // shared rules
@@ -12,15 +12,11 @@ export default defineConfig([
     rules: {
       // Expo / RN specific overrides
       'react/react-in-jsx-scope': 'off', // not needed in RN
-      'no-console': ['warn', { allow: ['warn', 'error'] }]
-    }
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+    },
   },
 
   {
-    ignores: [
-      'dist/**',
-      'node_modules/**',
-      '.expo/**'
-    ]
-  }
+    ignores: ['dist/**', 'node_modules/**', '.expo/**'],
+  },
 ]);

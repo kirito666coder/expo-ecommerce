@@ -1,0 +1,71 @@
+# =====================
+# Node modules
+# =====================
+node_modules
+
+# =====================
+# Expo / React Native
+# =====================
+.expo
+.expo-shared
+/dist
+build
+*.log
+
+# =====================
+# Next.js
+# =====================
+.next
+out
+.next/cache
+
+# =====================
+# Express / Backend
+# =====================
+dist
+build
+.tmp
+
+# =====================
+# Environment
+# =====================
+.env*
+!.env.example
+
+# =====================
+# Caches / Bundlers
+# =====================
+.cache
+.eslintcache
+.parcel-cache
+*.tsbuildinfo
+
+# =====================
+# Testing
+# =====================
+coverage
+.nyc_output
+jest.config.js
+jest.cache
+
+# =====================
+# TypeScript
+# =====================
+next-env.d.ts
+
+# =====================
+# IDE / Editor
+# =====================
+.vscode
+.idea
+
+# =====================
+# OS
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Deployment
+# =====================
+.vercel

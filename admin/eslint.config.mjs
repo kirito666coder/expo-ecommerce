@@ -1,4 +1,4 @@
-import base from "../eslint.base.mjs"; 
+import base from '../eslint.base.mjs';
 
 import { defineConfig, globalIgnores } from 'eslint/config';
 import nextVitals from 'eslint-config-next/core-web-vitals';
@@ -9,21 +9,14 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 
 export default defineConfig([
-  ...base, 
+  ...base,
 
-  globalIgnores([
-    '.next/**',
-    'out/**',
-    'build/**',
-    'dist/**',
-    'node_modules/**',
-    'next-env.d.ts'
-  ]),
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'dist/**', 'node_modules/**', 'next-env.d.ts']),
 
   {
     linterOptions: {
-      reportUnusedDisableDirectives: true
-    }
+      reportUnusedDisableDirectives: true,
+    },
   },
 
   ...nextVitals,
@@ -35,13 +28,13 @@ export default defineConfig([
     plugins: {
       prettier: prettierPlugin,
       'react-hooks': reactHooks,
-      '@typescript-eslint': tsPlugin
+      '@typescript-eslint': tsPlugin,
     },
 
     settings: {
       react: {
-        version: 'detect'
-      }
+        version: 'detect',
+      },
     },
 
     rules: {
@@ -49,12 +42,12 @@ export default defineConfig([
 
       '@typescript-eslint/no-unused-vars': [
         'error',
-        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
 
       '@typescript-eslint/consistent-type-imports': [
         'error',
-        { prefer: 'type-imports', fixStyle: 'separate-type-imports' }
+        { prefer: 'type-imports', fixStyle: 'separate-type-imports' },
       ],
 
       '@typescript-eslint/no-explicit-any': 'warn',
@@ -65,9 +58,9 @@ export default defineConfig([
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
 
-      '@next/next/no-img-element': 'off'
-    }
+      '@next/next/no-img-element': 'off',
+    },
   },
 
-  prettierConfig
+  prettierConfig,
 ]);

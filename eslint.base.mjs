@@ -1,6 +1,6 @@
-import js from '@eslint/js'
-import tsPlugin from '@typescript-eslint/eslint-plugin'
-import tsParser from '@typescript-eslint/parser'
+import js from '@eslint/js';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
 
 export default [
   js.configs.recommended,
@@ -10,11 +10,11 @@ export default [
       parser: tsParser,
       parserOptions: {
         ecmaVersion: 2022,
-        sourceType: 'module'
-      }
+        sourceType: 'module',
+      },
     },
     plugins: {
-      '@typescript-eslint': tsPlugin
+      '@typescript-eslint': tsPlugin,
     },
     rules: {
       indent: ['error', 2, { SwitchCase: 1 }],
@@ -27,10 +27,10 @@ export default [
       'prefer-const': 'error',
       'no-var': 'error',
       'object-shorthand': 'error',
-      'prefer-arrow-callback': 'error'
-    }
+      'prefer-arrow-callback': 'error',
+    },
   },
   {
-    ignores: ['node_modules/**', 'dist/**', 'coverage/**']
-  }
-]
+    ignores: ['node_modules/**', 'dist/**', 'coverage/**'],
+  },
+];

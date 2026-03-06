@@ -7,13 +7,11 @@
     "mobile"
   ],
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-
-    "lint:web": "eslint apps/web",
-    "lint:mobile": "eslint apps/mobile",
-    "lint:server": "eslint packages/server",
-
+    "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
+    "lint:fix": "eslint . --fix --ext .js,.ts,.tsx,.jsx",
+    "lint:mobile": "eslint ./mobile  --ext .js,.ts,.tsx,.jsx",
+    "lint:web": "eslint ./admin --ext .js,.ts,.tsx,.jsx",
+    "lint:server": "eslint ./backend --ext .js,.ts",
     "format": "prettier . --write",
     "format:check": "prettier . --check"
   },
@@ -27,6 +25,7 @@
     "eslint-plugin-react": "^7.37.5",
     "husky": "^9.1.7",
     "lint-staged": "^16.3.2",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.7.2"
   }
 }
