@@ -1,6 +1,7 @@
 {
   "name": "expo-ecommerce",
   "private": true,
+  "type": "module",
   "workspaces": [
     "admin",
     "backend",

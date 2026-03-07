@@ -31,6 +31,31 @@ export default [
     },
   },
   {
-    ignores: ['node_modules/**', 'dist/**', 'coverage/**'],
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      'coverage/**',
+      '.next/**',
+      '**/.next/**',
+      'out/**',
+      'build/**',
+    ],
+  },
+  // Node.js globals for backend
+  {
+    files: ['backend/**/*.{js,ts}'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+        console: 'readonly',
+        Buffer: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        module: 'readonly',
+        require: 'readonly',
+        exports: 'writable',
+        global: 'readonly',
+      },
+    },
   },
 ];
