@@ -3,14 +3,22 @@ import app from './app';
 import { ConnectDB } from './configs/db';
 
 const PORT = process.env.PORT || 5000;
-const StartServer = async () => {
-  await ConnectDB();
 
-  const server = http.createServer(app);
+let server: http.Server;
 
-  server.listen(PORT, () => {
-    console.log(`Server running on port http://localhost:${PORT}`);
-  });
+const startServer = async () => {
+  try {
+    await ConnectDB();
+
+    server = http.createServer(app);
+
+    server.listen(PORT, () => {
+      console.log(`Server running at http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error('Startup failed:', error);
+    process.exit(1);
+  }
 };
 
-StartServer();
+startServer();
