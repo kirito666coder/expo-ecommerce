@@ -43,7 +43,6 @@ export default function RootLayout({
           </header>
           {children}
         </ClerkProvider>
-        {children}
       </body>
     </html>
   );
