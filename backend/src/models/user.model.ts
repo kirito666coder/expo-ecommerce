@@ -1,4 +1,5 @@
 import { model, models, Schema } from 'mongoose';
+import { addressSchema } from './address.model';
 
 const userSchema = new Schema(
   {
@@ -9,7 +10,7 @@ const userSchema = new Schema(
     },
     name: {
       type: String,
-      require: true,
+      required: true,
     },
     imageUrl: {
       type: String,
@@ -20,7 +21,7 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    addresses: [],
+    addresses: [addressSchema],
     wishlist: [
       {
         type: Schema.Types.ObjectId,
@@ -31,6 +32,6 @@ const userSchema = new Schema(
   { timestamps: true },
 );
 
-const userModel = models || model('User', userSchema);
+const userModel = models.User || model('User', userSchema);
 
 export default userModel;
