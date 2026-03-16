@@ -8,7 +8,7 @@ const AllRoutes = Router();
 
 AllRoutes.use(clerkMiddleware());
 
-AllRoutes.use('/api/inngest', serve({ client: inngest, functions }));
+AllRoutes.use('/inngest', serve({ client: inngest, functions }));
 
 AllRoutes.use('/auth', requireAuth(), authRouter);
 

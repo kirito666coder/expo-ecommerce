@@ -14,7 +14,7 @@ interface ClerkUserDeletedData {
   id: string;
 }
 
-export const inngest = new Inngest({ id: 'ecommerce-app' });
+export const inngest = new Inngest({ id: 'ecommerce-app', isDev: false });
 
 const syncUser = inngest.createFunction(
   { id: 'sync-user' },
@@ -32,7 +32,10 @@ const syncUser = inngest.createFunction(
       addresses: [],
       wishlist: [],
     };
-    await userModel.create(newUser);
+    const existing = await userModel.findOne({ uid: id });
+    if (!existing) {
+      await userModel.create(newUser);
+    }
   },
 );
 
