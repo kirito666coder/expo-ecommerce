@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import { ENV } from './env';
+import logger from '../libs/logger';
 
 export const ConnectDB = async (): Promise<void> => {
   const DB_URL = ENV.DB_URL;
@@ -9,9 +10,9 @@ export const ConnectDB = async (): Promise<void> => {
 
   try {
     const db = await mongoose.connect(DB_URL);
-    console.log(`Connected to MongoDB: ${db.connection.name}`);
+    logger.info(`Connected to MongoDB: ${db.connection.name}`);
   } catch (error) {
-    console.error('Error connecting to MongoDB', error);
+    logger.error('Error connecting to MongoDB', error);
     throw error;
   }
 };
