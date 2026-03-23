@@ -23,11 +23,13 @@
     "inngest": "^3.52.6",
     "mongoose": "^9.3.0",
     "morgan": "^1.10.1",
+    "multer": "^2.1.1",
     "winston": "^3.19.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/morgan": "^1.9.10",
+    "@types/multer": "^2.1.0",
     "@types/node": "^25.3.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3"
