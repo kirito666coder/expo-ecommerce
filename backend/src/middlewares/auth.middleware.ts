@@ -2,6 +2,7 @@ import { requireAuth } from '@clerk/express';
 import { NextFunction, Request, Response } from 'express';
 import { userModel } from '../models';
 import { ENV } from '../configs/env';
+import logger from '../libs/logger';
 
 export const protectRouteMiddleware = [
   requireAuth(),
@@ -17,7 +18,7 @@ export const protectRouteMiddleware = [
       req.user = user;
       next();
     } catch (error) {
-      console.log('Error in protectRoute middleware', error);
+      logger.info('Error in protectRoute middleware', error);
       res.status(500).json({ message: 'Internal server error' });
     }
   },

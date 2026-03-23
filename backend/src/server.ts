@@ -1,6 +1,7 @@
 import http from 'http';
 import app from './app';
 import { ConnectDB } from './configs/db';
+import logger from './libs/logger';
 
 const PORT = process.env.PORT || 5000;
 
@@ -13,10 +14,10 @@ const startServer = async () => {
     server = http.createServer(app);
 
     server.listen(PORT, () => {
-      console.log(`Server running at http://localhost:${PORT}`);
+      logger.info(`Server running at http://localhost:${PORT}`);
     });
   } catch (error) {
-    console.error('Startup failed:', error);
+    logger.error('Startup failed:', error);
     process.exit(1);
   }
 };
