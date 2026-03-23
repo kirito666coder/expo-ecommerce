@@ -5,6 +5,7 @@ declare global {
     interface Request {
       auth?: { userId?: string; sessionId?: string; claims?: any };
       clerkUser?: User;
+      user: import('../models/user.model').IUser;
     }
   }
 }
