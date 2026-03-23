@@ -1,0 +1,36 @@
+import { requireAuth } from '@clerk/express';
+import { NextFunction, Request, Response } from 'express';
+import { userModel } from '../models';
+import { ENV } from '../configs/env';
+
+export const protectRouteMiddleware = [
+  requireAuth(),
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const uid = req.auth?.userId;
+
+      if (!uid) return res.status(401).json({ message: 'unauthorized - invalid token' });
+
+      const user = await userModel.findOne({ uid });
+      if (!user) return res.status(404).json({ message: 'User not found' });
+
+      req.user = user;
+      next();
+    } catch (error) {
+      console.log('Error in protectRoute middleware', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  },
+];
+
+export const adminOnly = (req: Request, res: Response, next: NextFunction) => {
+  if (!req.user) {
+    return res.status(401).json({ message: 'Unauthorized - user not found' });
+  }
+
+  if (req.user.email !== ENV.ADMIN_EMAIL) {
+    return res.status(403).json({ message: 'Forbidden - admin access only' });
+  }
+
+  next();
+};

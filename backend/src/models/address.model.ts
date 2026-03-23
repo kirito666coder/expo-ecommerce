@@ -1,4 +1,15 @@
-import { Schema } from 'mongoose';
+import { Document, Schema } from 'mongoose';
+
+export interface IAddress extends Document {
+  label: string;
+  fullName: string;
+  streetAddress: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  phoneNumber: string;
+  isDefault: boolean;
+}
 
 export const addressSchema = new Schema({
   label: {

@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { createProduct } from '../controllers/admin.controller';
+import { createProductController } from '../controllers/admin.controller';
 
 const adminRoute = Router();
 
-adminRoute.post('/product', createProduct);
+adminRoute.post('/product', createProductController);
 
 export default adminRoute;

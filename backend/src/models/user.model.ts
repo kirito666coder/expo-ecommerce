@@ -1,7 +1,18 @@
-import { model, models, Schema } from 'mongoose';
-import { addressSchema } from './address.model';
+import { Document, model, models, Schema, Types } from 'mongoose';
+import { addressSchema, IAddress } from './address.model';
 
-const userSchema = new Schema(
+interface IUser extends Document {
+  email: string;
+  name: string;
+  imageUrl: string;
+  uid: string;
+  addresses: IAddress[];
+  wishlist: Types.ObjectId[];
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const userSchema = new Schema<IUser>(
   {
     email: {
       type: String,

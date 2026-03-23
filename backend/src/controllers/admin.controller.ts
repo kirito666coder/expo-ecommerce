@@ -1,1 +1,1 @@
-export const createProduct = async () => {};
+export const createProductController = async () => {};
