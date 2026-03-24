@@ -25,14 +25,14 @@ const syncUser = inngest.createFunction(
     const { id, email_addresses, first_name, last_name, image_url } = event.data;
 
     const newUser = {
-      uid: id,
+      clerkId: id,
       email: email_addresses[0]?.email_address,
       name: `${first_name || ''} ${last_name || ''}`.trim() || 'User',
       imageUrl: image_url || '',
       addresses: [],
       wishlist: [],
     };
-    const existing = await userModel.findOne({ uid: id });
+    const existing = await userModel.findOne({ clerkId: id });
     if (!existing) {
       await userModel.create(newUser);
     }
@@ -46,7 +46,7 @@ const deleteUserFromDB = inngest.createFunction(
     await ConnectDB();
 
     const { id } = event.data;
-    await userModel.deleteOne({ uid: id });
+    await userModel.deleteOne({ clerkId: id });
   },
 );
 

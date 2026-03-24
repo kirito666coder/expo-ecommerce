@@ -5,7 +5,7 @@ interface IUser extends Document {
   email: string;
   name: string;
   imageUrl: string;
-  uid: string;
+  clerkId: string;
   addresses: IAddress[];
   wishlist: Types.ObjectId[];
   createdAt: Date;
@@ -27,7 +27,7 @@ const userSchema = new Schema<IUser>(
       type: String,
       default: '',
     },
-    uid: {
+    clerkId: {
       type: String,
       required: true,
       unique: true,
