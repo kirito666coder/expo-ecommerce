@@ -5,6 +5,7 @@ import { serve } from 'inngest/express';
 import adminRoute from './admin.route';
 import { adminOnly, protectRouteMiddleware } from '../middlewares/auth.middleware';
 import cartRoute from './cart.route';
+import orderRoute from './order.route';
 
 const AllRoutes = Router();
 
@@ -15,5 +16,7 @@ AllRoutes.use('/inngest', serve({ client: inngest, functions }));
 AllRoutes.use('/admin', protectRouteMiddleware, adminOnly, adminRoute);
 
 AllRoutes.use('/cart', protectRouteMiddleware, cartRoute);
+
+AllRoutes.use('/orders', protectRouteMiddleware, orderRoute);
 
 export default AllRoutes;
