@@ -8,11 +8,11 @@ export const protectRouteMiddleware = [
   requireAuth(),
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const uid = req.auth?.userId;
+      const clerkId = req.auth?.userId;
 
-      if (!uid) return res.status(401).json({ message: 'unauthorized - invalid token' });
+      if (!clerkId) return res.status(401).json({ message: 'unauthorized - invalid token' });
 
-      const user = await userModel.findOne({ uid });
+      const user = await userModel.findOne({ clerkId });
       if (!user) return res.status(404).json({ message: 'User not found' });
 
       req.user = user;

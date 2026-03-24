@@ -1,6 +1,11 @@
-import { model, models, Schema } from 'mongoose';
+import { Document, model, models, Schema, Types } from 'mongoose';
 
-const cartItemSchema = new Schema({
+export interface ICart extends Document {
+  product: Types.ObjectId;
+  quantity: number;
+}
+
+const cartItemSchema = new Schema<ICart>({
   product: {
     type: Schema.Types.ObjectId,
     ref: 'Product',
