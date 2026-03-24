@@ -4,7 +4,7 @@ import {
   deleteMultipleImagesFromCloudinary,
   uploadImagesToCloudinary,
 } from '../services/upload.service';
-import { productModel } from '../models';
+import { orderModel, productModel, userModel } from '../models';
 
 export const createProductController = asyncHandler(async (req, res) => {
   const { name, description, price, stock, category } = req.body;
@@ -93,10 +93,70 @@ export const deleteProductController = asyncHandler(async (req, res) => {
   res.status(200).json({ message: 'Product delete successfully' });
 }, 'deleteProductController');
 
-// export const getAllOrdersController = asyncHandler(async(req,res)=>{},'getAllOrdersController');
+export const getAllOrdersController = asyncHandler(async (req, res) => {
+  const orders = await orderModel
+    .find()
+    .populate('user', 'name email')
+    .populate('orderItems.product')
+    .sort({ createdAt: -1 });
 
-// export const updateOrderStatusController = asyncHandler(async(req,res)=>{},'updateOrderStatusController');
+  res.status(200).json({ orders });
+}, 'getAllOrdersController');
 
-// export const getAllCustomersController = asyncHandler(async(req,res)=>{},'getAllCustomersController');
+export const updateOrderStatusController = asyncHandler(async (req, res) => {
+  const { orderId } = req.params;
+  const { status } = req.body;
 
-// export const getDashboardStatsController = asyncHandler(async(req,res)=>{},'getDashboardStatsController');
+  if (!['pending', 'shipped', 'delivered'].includes(status)) {
+    return res.status(400).json({ error: 'Invalid status' });
+  }
+
+  const order = await orderModel.findById(orderId);
+  if (!order) {
+    return res.status(404).json({ error: 'Order not found' });
+  }
+
+  order.status = status;
+
+  if (status === 'shipped' && !order.shippedAt) {
+    order.shippedAt = new Date();
+  }
+
+  if (status === 'delivered' && !order.deliveredAt) {
+    order.deliveredAt = new Date();
+  }
+
+  await order.save();
+
+  res.status(200).json({ message: 'Order status updated successfully', order });
+}, 'updateOrderStatusController');
+
+export const getAllCustomersController = asyncHandler(async (req, res) => {
+  const customers = await userModel.find().sort({ createdAt: -1 });
+  res.status(200).json({ customers });
+}, 'getAllCustomersController');
+
+export const getDashboardStatsController = asyncHandler(async (req, res) => {
+  const totalOrders = await orderModel.countDocuments();
+
+  const revenueResult = await orderModel.aggregate([
+    {
+      $group: {
+        _id: null,
+        total: { $sum: '$totalPrice' },
+      },
+    },
+  ]);
+
+  const totalRevenue = revenueResult[0]?.total || 0;
+
+  const totalCustomers = await userModel.countDocuments();
+  const totalProducts = await productModel.countDocuments();
+
+  res.status(200).json({
+    totalRevenue,
+    totalOrders,
+    totalCustomers,
+    totalProducts,
+  });
+}, 'getDashboardStatsController');
