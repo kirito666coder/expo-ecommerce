@@ -11,7 +11,7 @@ export interface IAddress extends Document {
   isDefault: boolean;
 }
 
-export const addressSchema = new Schema({
+export const addressSchema = new Schema<IAddress>({
   label: {
     type: String,
     required: true,
