@@ -1,14 +1,14 @@
-import { requireAuth } from '@clerk/express';
+import { getAuth } from '@clerk/express';
 import { NextFunction, Request, Response } from 'express';
 import { userModel } from '../models';
 import { ENV } from '../configs/env';
 import logger from '../libs/logger';
 
 export const protectRouteMiddleware = [
-  requireAuth(),
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const clerkId = req.auth?.userId;
+      const auth = getAuth(req);
+      const clerkId = auth.userId;
 
       if (!clerkId) return res.status(401).json({ message: 'unauthorized - invalid token' });
 

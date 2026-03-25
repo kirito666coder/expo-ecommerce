@@ -1,8 +1,20 @@
 import express, { ErrorRequestHandler, Request, Response } from 'express';
 import AllRoutes from './routes';
 import morganMiddleware from './libs/morgan';
+import cors from 'cors';
+import helmet from 'helmet';
+import { ENV } from './configs/env';
 
 const app = express();
+
+app.use(helmet());
+
+app.use(
+  cors({
+    origin: ENV.CLIENT_URL ?? 'http://localhost:3000',
+    credentials: true,
+  }),
+);
 
 app.use(express.json());
 
