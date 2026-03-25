@@ -1,4 +1,12 @@
-import { model, models, Schema } from 'mongoose';
+import { Document, model, models, Schema, Types } from 'mongoose';
+
+export interface IOrderItem extends Document {
+  product: Types.ObjectId;
+  name: string;
+  price: string;
+  quantity: number;
+  image: string;
+}
 
 const orderItemSchema = new Schema({
   product: {
