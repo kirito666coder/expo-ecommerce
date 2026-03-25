@@ -58,4 +58,19 @@ export default [
       },
     },
   },
+  {
+    files: ['admin/**/*.{js,ts,tsx,jsx}', 'mobile/**/*.{js,ts,tsx,jsx}'],
+    languageOptions: {
+      globals: {
+        window: 'readonly',
+        document: 'readonly',
+        HTMLElement: 'readonly',
+        MutationObserver: 'readonly',
+        HTMLAnchorElement: 'readonly',
+        MouseEvent: 'readonly',
+
+        URL: 'readonly',
+      },
+    },
+  },
 ];

@@ -61,6 +61,12 @@ export default defineConfig([
       '@next/next/no-img-element': 'off',
     },
   },
+  {
+    files: ['**/*.{ts,tsx}'], // 👈 ONLY TS FILES
+    rules: {
+      'no-undef': 'off',
+    },
+  },
 
   prettierConfig,
 ]);
