@@ -8,6 +8,7 @@ import cartRoute from './cart.route';
 import orderRoute from './order.route';
 import productRoute from './product.route';
 import reviewRoute from './review.route';
+import userRoute from './user.route';
 
 const AllRoutes = Router();
 
@@ -16,6 +17,8 @@ AllRoutes.use(clerkMiddleware());
 AllRoutes.use('/inngest', serve({ client: inngest, functions }));
 
 AllRoutes.use('/admin', protectRouteMiddleware, adminOnly, adminRoute);
+
+AllRoutes.use('/users', protectRouteMiddleware, userRoute);
 
 AllRoutes.use('/cart', protectRouteMiddleware, cartRoute);
 
