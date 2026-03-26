@@ -64,7 +64,11 @@ export default [
       globals: {
         window: 'readonly',
         document: 'readonly',
+        File: 'readonly',
+        alert: 'readonly',
+        FormData: 'readonly',
         HTMLElement: 'readonly',
+        HTMLInputElement: 'readonly',
         MutationObserver: 'readonly',
         HTMLAnchorElement: 'readonly',
         MouseEvent: 'readonly',
