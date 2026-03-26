@@ -66,6 +66,8 @@ export type OrdersResponse = {
   orders: Order[];
 };
 
+export type OrderStatus = 'pending' | 'shipped' | 'delivered';
+
 export type Stats = {
   totalRevenue: number;
   totalOrders: number;
