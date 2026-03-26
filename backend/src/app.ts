@@ -4,6 +4,7 @@ import morganMiddleware from './libs/morgan';
 import cors from 'cors';
 import helmet from 'helmet';
 import { ENV } from './configs/env';
+import logger from './libs/logger';
 
 const app = express();
 
@@ -27,7 +28,7 @@ app.get('/api/health', (req: Request, res: Response) => {
 app.use('/api', AllRoutes);
 
 const errorHandler: ErrorRequestHandler = (err, req, res, _next) => {
-  console.error(err);
+  logger.error(err);
 
   res.status((err as any).status || 500).json({
     message: err.message || 'Internal server error',

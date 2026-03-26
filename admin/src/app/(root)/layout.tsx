@@ -2,6 +2,8 @@
 import { useApi } from '@/hooks/useApi';
 import { ReactNode, useEffect } from 'react';
 import { useAuth } from '@clerk/nextjs';
+import Navbar from '@/components/Navbar';
+import Sidebar from '@/components/Sidebar';
 
 export default function Layout({ children }: { children: ReactNode }) {
   const api = useApi();
@@ -26,8 +28,10 @@ export default function Layout({ children }: { children: ReactNode }) {
       <input id="my-drawer" type="checkbox" className="drawer-toggle" defaultChecked />
 
       <div className="drawer-content">
+        <Navbar />
         <main className="p-6">{children}</main>
       </div>
+      <Sidebar />
     </div>
   );
 }
