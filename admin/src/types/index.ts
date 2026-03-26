@@ -18,7 +18,13 @@ export type Product = {
 export type User = {
   _id: string;
   name: string;
+  clerkId: string;
   email: string;
+  imageUrl: string;
+  wishlist: [];
+  addresses: [];
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type OrderItem = {
