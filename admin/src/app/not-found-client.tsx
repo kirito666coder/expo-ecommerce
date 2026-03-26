@@ -13,7 +13,7 @@ export default function NotFoundClient() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: '"Inter", sans-serif',
       }}
     >
       <div
