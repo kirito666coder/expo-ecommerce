@@ -1,4 +1,4 @@
-export type OrderStatus = 'pending' | 'shipped' | 'delivered';
+import { OrderStatus } from '@/types';
 
 export const capitalizeText = (text: string) => {
   if (!text) return text;
