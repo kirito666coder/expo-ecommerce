@@ -37,7 +37,7 @@ export default function MagneticButton() {
     <div onMouseMove={handleMouseMove} onMouseLeave={reset} style={{ display: 'inline-block' }}>
       <Link
         ref={ref}
-        href="/"
+        href="/dashboard"
         style={{
           display: 'inline-block',
           padding: '11px 24px',
