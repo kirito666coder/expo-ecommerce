@@ -67,11 +67,17 @@ export const updateProductController = asyncHandler(async (req, res) => {
   }
 
   if (files.length > 0) {
-    const publicIds = product.images.map((img: { public_id: string }) => img.public_id);
-    await deleteMultipleImagesFromCloudinary(publicIds);
+    const previousImages = product.images;
 
     const images = await uploadImagesToCloudinary(files);
-    if (images) product.images = images;
+    if (images) {
+      product.images = images;
+      await product.save();
+    }
+
+    const publicIds = previousImages.images.map((img: { public_id: string }) => img.public_id);
+    await deleteMultipleImagesFromCloudinary(publicIds);
+    return res.status(200).json(product);
   }
 
   await product.save();

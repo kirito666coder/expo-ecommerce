@@ -280,13 +280,16 @@ export default function AddProductSection({
                       <div className="w-20 rounded-lg">
                         <img src={preview} alt={`Preview ${index + 1}`} />
                       </div>
-                      <Trash2Icon
+                      <button
+                        type="button"
+                        aria-label={'Remove image'}
                         onClick={() => {
                           setImagePreviews((prev) => prev.filter((_, i) => i !== index));
                           setImages((prev) => prev.filter((_, i) => i !== index));
                         }}
-                        className="h-5 w-5 cursor-pointer hover:text-red-500"
-                      />
+                      >
+                        <Trash2Icon className="h-5 w-5 cursor-pointer hover:text-red-500" />
+                      </button>
                     </div>
                   ))}
                 </div>
