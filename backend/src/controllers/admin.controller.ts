@@ -58,19 +58,27 @@ export const updateProductController = asyncHandler(async (req, res) => {
 
   const files = req.files as Express.Multer.File[];
 
-  if (!files) {
-    return res.status(400).json({ message: 'At least one image is required' });
-  }
+  // if (!files) {
+  //   return res.status(400).json({ message: 'At least one image is required' });
+  // }
 
   if (files.length > 3) {
     return res.status(400).json({ message: 'Maximum 3 images allowed' });
   }
 
-  const publicIds = product.images.map((img: { public_id: string }) => img.public_id);
-  await deleteMultipleImagesFromCloudinary(publicIds);
+  if (files.length > 0) {
+    const previousImages = product.images;
 
-  const images = await uploadImagesToCloudinary(files);
-  if (images) product.images = images;
+    const images = await uploadImagesToCloudinary(files);
+    if (images) {
+      product.images = images;
+      await product.save();
+    }
+
+    const publicIds = previousImages.images.map((img: { public_id: string }) => img.public_id);
+    await deleteMultipleImagesFromCloudinary(publicIds);
+    return res.status(200).json(product);
+  }
 
   await product.save();
   res.status(200).json(product);
