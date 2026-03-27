@@ -99,7 +99,7 @@ function ProductsPage() {
         setShowModal={setShowModal}
         editingProduct={editingProduct}
         setEditingProduct={setEditingProduct}
-        refetchProducts={productData}
+        setProducts={setProducts}
       />
     </div>
   );

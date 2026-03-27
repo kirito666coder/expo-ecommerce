@@ -3,7 +3,7 @@
 
 import { useFetch } from '@/hooks/useFetch';
 import { Product } from '@/types';
-import { ImageIcon, XIcon } from 'lucide-react';
+import { ImageIcon, Trash2Icon, XIcon } from 'lucide-react';
 import { ChangeEvent, Dispatch, FormEvent, SetStateAction, useEffect, useState } from 'react';
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
   editingProduct: Product | null;
   setShowModal: Dispatch<SetStateAction<boolean>>;
   setEditingProduct: Dispatch<SetStateAction<Product | null>>;
-  refetchProducts: () => void;
+  setProducts: Dispatch<SetStateAction<Product[]>>;
 };
 
 export default function AddProductSection({
@@ -19,7 +19,7 @@ export default function AddProductSection({
   setShowModal,
   editingProduct,
   setEditingProduct,
-  refetchProducts,
+  setProducts,
 }: Props) {
   const [formData, setFormData] = useState({
     name: '',
@@ -73,7 +73,7 @@ export default function AddProductSection({
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    if (images.length < 1) {
+    if (images.length < 1 && !editingProduct) {
       return alert('At least 1 image is required');
     }
 
@@ -90,7 +90,7 @@ export default function AddProductSection({
         form.append('images', img);
       });
 
-      let res;
+      let res: Product | null;
 
       if (editingProduct) {
         res = await request((api) => api.put(`/admin/products/${editingProduct?._id}`, form));
@@ -99,6 +99,9 @@ export default function AddProductSection({
       }
 
       if (res) {
+        setProducts((prev) => prev.filter((pro) => pro._id !== res._id));
+        setProducts((prev) => [res, ...prev]);
+
         setFormData({
           name: '',
           category: '',
@@ -112,7 +115,7 @@ export default function AddProductSection({
 
         setShowModal(false);
         closeHandle();
-        refetchProducts();
+        // refetchProducts();
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -148,7 +151,12 @@ export default function AddProductSection({
               {editingProduct ? 'Edit Product' : 'Add New Product'}
             </h3>
 
-            <button onClick={() => setShowModal(false)} className="btn btn-sm btn-circle btn-ghost">
+            <button
+              onClick={() => {
+                (setShowModal(false), closeHandle());
+              }}
+              className="btn btn-sm btn-circle btn-ghost"
+            >
               <XIcon className="h-5 w-5" />
             </button>
           </div>
@@ -272,6 +280,13 @@ export default function AddProductSection({
                       <div className="w-20 rounded-lg">
                         <img src={preview} alt={`Preview ${index + 1}`} />
                       </div>
+                      <Trash2Icon
+                        onClick={() => {
+                          setImagePreviews((prev) => prev.filter((_, i) => i !== index));
+                          setImages((prev) => prev.filter((_, i) => i !== index));
+                        }}
+                        className="h-5 w-5 cursor-pointer hover:text-red-500"
+                      />
                     </div>
                   ))}
                 </div>
