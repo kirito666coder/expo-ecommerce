@@ -1,5 +1,5 @@
 import { defineConfig } from 'eslint/config';
-import expo from 'eslint-config-expo/flat.js';
+import expo from 'eslint-config-expo/flat';
 import base from '../eslint.base.mjs';
 
 export default defineConfig([
