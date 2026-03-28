@@ -1,4 +1,4 @@
-import express, { ErrorRequestHandler, Request, Response } from 'express';
+import express, { ErrorRequestHandler, Request, Response, Express } from 'express';
 import AllRoutes from './routes';
 import morganMiddleware from './libs/morgan';
 import cors from 'cors';
@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import { ENV } from './configs/env';
 import logger from './libs/logger';
 
-const app = express();
+const app: Express = express();
 
 app.use(helmet());
 

@@ -1,0 +1,9 @@
+packages:
+  - 'admin'
+  - 'backend'
+  - 'mobile'
+allowBuilds:
+  '@clerk/shared': true
+  protobufjs: true
+  sharp: true
+  unrs-resolver: true
