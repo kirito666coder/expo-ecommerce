@@ -2,11 +2,6 @@
   "name": "expo-ecommerce",
   "private": true,
   "type": "module",
-  "workspaces": [
-    "admin",
-    "backend",
-    "mobile"
-  ],
   "scripts": {
     "prepare": "husky",
     "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
