@@ -4,6 +4,10 @@ packages:
   - 'mobile'
 allowBuilds:
   '@clerk/shared': true
+  browser-tabs-lock: true
+  bufferutil: true
+  core-js: true
   protobufjs: true
   sharp: true
   unrs-resolver: true
+  utf-8-validate: true
