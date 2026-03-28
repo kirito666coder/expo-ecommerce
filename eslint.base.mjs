@@ -72,8 +72,8 @@ export default [
         MutationObserver: 'readonly',
         HTMLAnchorElement: 'readonly',
         MouseEvent: 'readonly',
-
         URL: 'readonly',
+        process: 'readonly',
       },
     },
   },
