@@ -77,19 +77,19 @@ export default [
       },
     },
   },
-{
-  files: ['**/*.config.cjs', '**/*.cjs'],
-  languageOptions: {
-    sourceType: 'commonjs',
-    globals: {
-      module:     'readonly',
-      require:    'readonly',
-      exports:    'writable',
-      __dirname:  'readonly',
-      __filename: 'readonly',
-      process:    'readonly',
-      console:    'readonly',
+  {
+    files: ['**/*.config.cjs', '**/*.cjs'],
+    languageOptions: {
+      sourceType: 'commonjs',
+      globals: {
+        module: 'readonly',
+        require: 'readonly',
+        exports: 'writable',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        process: 'readonly',
+        console: 'readonly',
+      },
     },
   },
-},
 ];
