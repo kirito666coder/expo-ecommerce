@@ -1,5 +1,4 @@
-import type { Request } from 'express';
-import type { Express } from 'express-serve-static-core';
+import type { Request, Express } from 'express';
 import multer, { FileFilterCallback } from 'multer';
 import path from 'path';
 

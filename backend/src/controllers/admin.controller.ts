@@ -1,4 +1,4 @@
-import type { Express } from 'express-serve-static-core';
+import type { Express } from 'express';
 import { asyncHandler } from '../utils/asyncHandler';
 import {
   deleteMultipleImagesFromCloudinary,

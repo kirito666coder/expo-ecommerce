@@ -11,7 +11,7 @@ import {
 } from '../controllers/admin.controller';
 import { upload } from '../middlewares/multer.middleware';
 
-const adminRoute = Router();
+const adminRoute: Router = Router();
 
 adminRoute.post('/products', upload.array('images', 3), createProductController);
 adminRoute.get('/products', getAllProductsController);

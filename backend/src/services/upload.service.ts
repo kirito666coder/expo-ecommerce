@@ -1,4 +1,4 @@
-import type { Express } from 'express-serve-static-core';
+import type { Express } from 'express';
 import cloudinary from '../configs/cloudinary';
 
 type CloudinaryImage = {

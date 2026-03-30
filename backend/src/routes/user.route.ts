@@ -9,7 +9,7 @@ import {
   updateAddressController,
 } from '../controllers/user.controller';
 
-const userRoute = Router();
+const userRoute: Router = Router();
 
 userRoute.post('/addresses', addAddressController);
 userRoute.get('/addresses', getAddressesController);

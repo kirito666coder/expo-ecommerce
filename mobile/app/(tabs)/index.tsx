@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import SafeScreen from '@/components/SafeScreen';
 import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { icons } from '@/constants/icons';
+import ProductsGrid from '@/components/ProductsGrid';
+import useProduct from '@/Hooks/useProduct';
 
 const CATEGORIES = [
   { name: 'All', icon: 'grid-outline' as const },
@@ -15,6 +17,25 @@ const CATEGORIES = [
 export default function ShopScreen() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+
+  const { data: products, isLoading, isError } = useProduct();
+
+  const filteredProducts = useMemo(() => {
+    if (!products) return [];
+
+    let filtered = products;
+
+    if (selectedCategory !== 'All') {
+      filtered = filtered.filter((products) => products.category === selectedCategory);
+    }
+
+    if (searchQuery.trim()) {
+      filtered = filtered.filter((product) => product.name.toLowerCase().includes(searchQuery));
+    }
+
+    return filtered;
+  }, [products, selectedCategory, searchQuery]);
+
   return (
     <SafeScreen>
       <ScrollView
@@ -79,8 +100,9 @@ export default function ShopScreen() {
         <View className="mb-6 px-6">
           <View className="mb-4 flex-row items-center justify-between">
             <Text className="text-lg font-bold text-white">Products</Text>
-            <Text className="text-sm text-white/90"> items</Text>
+            <Text className="text-sm text-white/90">{filteredProducts.length} items</Text>
           </View>
+          <ProductsGrid products={filteredProducts} isLoading={isLoading} isError={isError} />
         </View>
       </ScrollView>
     </SafeScreen>
