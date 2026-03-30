@@ -7,7 +7,7 @@ import {
   updateCartItemController,
 } from '../controllers/cart.controller';
 
-const cartRoute = Router();
+const cartRoute: Router = Router();
 
 cartRoute.get('/', getCartController);
 cartRoute.post('/', addToCartController);

@@ -11,7 +11,6 @@ export const protectRouteMiddleware = [
       const clerkId = auth.userId;
 
       if (!clerkId) return res.status(401).json({ message: 'unauthorized - invalid token' });
-
       const user = await userModel.findOne({ clerkId });
       if (!user) return res.status(404).json({ message: 'User not found' });
 

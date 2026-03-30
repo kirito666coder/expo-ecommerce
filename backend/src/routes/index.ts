@@ -10,7 +10,7 @@ import productRoute from './product.route';
 import reviewRoute from './review.route';
 import userRoute from './user.route';
 
-const AllRoutes = Router();
+const AllRoutes: Router = Router();
 
 AllRoutes.use(clerkMiddleware());
 

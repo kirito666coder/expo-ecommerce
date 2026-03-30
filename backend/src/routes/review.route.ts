@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { createReviewController, deleteReviewController } from '../controllers/review.controller';
 
-const reviewRoute = Router();
+const reviewRoute: Router = Router();
 
 reviewRoute.post('/', createReviewController);
 reviewRoute.delete('/:reviewId', deleteReviewController);
