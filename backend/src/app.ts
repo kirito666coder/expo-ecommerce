@@ -3,7 +3,7 @@ import AllRoutes from './routes';
 import morganMiddleware from './libs/morgan';
 import cors from 'cors';
 import helmet from 'helmet';
-import { ENV } from './configs/env';
+// import { ENV } from './configs/env';
 import logger from './libs/logger';
 
 const app: Express = express();
@@ -12,7 +12,7 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: ENV.CLIENT_URL ?? 'http://localhost:3000',
+    origin: true,
     credentials: true,
   }),
 );
