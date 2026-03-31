@@ -9,7 +9,7 @@ const useProduct = () => {
   return useQuery({
     queryKey: ['products'],
     queryFn: async () => {
-      const { data } = await api.get<Product[]>('/products');
+      const { data } = await api.get<Product[]>('/admin/products');
       return data;
     },
   });

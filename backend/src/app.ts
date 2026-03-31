@@ -17,9 +17,9 @@ app.use(
   }),
 );
 
-app.use(express.json());
-
 app.use(morganMiddleware);
+
+app.use(express.json());
 
 app.get('/api/health', (req: Request, res: Response) => {
   res.status(200).json({ message: 'Success' });

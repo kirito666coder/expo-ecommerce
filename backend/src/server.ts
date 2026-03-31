@@ -3,7 +3,7 @@ import app from './app';
 import { ConnectDB } from './configs/db';
 import logger from './libs/logger';
 
-const PORT = process.env.PORT || 5000;
+const PORT = Number(process.env.PORT) || 5000;
 
 let server: http.Server;
 
@@ -13,7 +13,7 @@ const startServer = async () => {
 
     server = http.createServer(app);
 
-    server.listen(PORT, () => {
+    server.listen(PORT, '0.0.0.0', () => {
       logger.info(`Server running at http://localhost:${PORT}`);
     });
   } catch (error) {

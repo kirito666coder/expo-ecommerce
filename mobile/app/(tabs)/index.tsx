@@ -4,7 +4,7 @@ import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'reac
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { icons } from '@/constants/icons';
 import ProductsGrid from '@/components/ProductsGrid';
-import useProduct from '@/Hooks/useProduct';
+import useProduct from '@/hooks/useProduct';
 
 const CATEGORIES = [
   { name: 'All', icon: 'grid-outline' as const },
@@ -30,7 +30,9 @@ export default function ShopScreen() {
     }
 
     if (searchQuery.trim()) {
-      filtered = filtered.filter((product) => product.name.toLowerCase().includes(searchQuery));
+      filtered = filtered.filter((product) =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
     }
 
     return filtered;
