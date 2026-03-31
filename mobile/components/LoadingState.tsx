@@ -9,7 +9,7 @@ const LoadingState = ({ message = 'Loading...', color = '#00D9FF' }: LoadingStat
   return (
     <View className="bg-background flex-1 items-center justify-center">
       <ActivityIndicator size={'large'} color={color} />
-      <Text className="text-text-secondary mt-4">{message}</Text>
+      <Text className="mt-4 text-white">{message}</Text>
     </View>
   );
 };

@@ -8,7 +8,7 @@ export default function AddressesHeader() {
       <TouchableOpacity onPress={() => router.back()} className="mr-4">
         <Ionicons name="arrow-back" size={28} color="#FFFFFF" />
       </TouchableOpacity>
-      <Text className="text-text-primary text-2xl font-bold">My Addresses</Text>
+      <Text className="text-2xl font-bold text-white">My Addresses</Text>
     </View>
   );
 }
