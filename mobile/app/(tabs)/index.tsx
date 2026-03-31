@@ -4,7 +4,7 @@ import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'reac
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { icons } from '@/constants/icons';
 import ProductsGrid from '@/components/ProductsGrid';
-import useProduct from '@/Hooks/useProduct';
+import useProducts from '@/Hooks/useProducts';
 
 const CATEGORIES = [
   { name: 'All', icon: 'grid-outline' as const },
@@ -18,7 +18,7 @@ export default function ShopScreen() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  const { data: products, isLoading, isError } = useProduct();
+  const { data: products, isLoading, isError } = useProducts();
 
   const filteredProducts = useMemo(() => {
     if (!products) return [];
