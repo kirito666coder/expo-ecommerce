@@ -4,7 +4,7 @@ import base from '../eslint.base.mjs';
 
 const baseWithoutPlugins = base.map((config) => {
   if (!config.plugins) return config;
-  const { plugins, ...rest } = config;
+  const { _plugins, ...rest } = config;
   return rest;
 });
 

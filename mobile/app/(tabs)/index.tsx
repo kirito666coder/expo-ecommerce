@@ -4,7 +4,7 @@ import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'reac
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { icons } from '@/constants/icons';
 import ProductsGrid from '@/components/ProductsGrid';
-import useProduct from '@/hooks/useProduct';
+import useProduct from '@/Hooks/useProduct';
 
 const CATEGORIES = [
   { name: 'All', icon: 'grid-outline' as const },

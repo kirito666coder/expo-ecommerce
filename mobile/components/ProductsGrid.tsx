@@ -1,5 +1,5 @@
-import useCart from '@/hooks/useCart';
-import useWishlist from '@/hooks/useWishlist';
+import useCart from '@/Hooks/useCart';
+import useWishlist from '@/Hooks/useWishlist';
 import { Product } from '@/types';
 import { Ionicons } from '@expo/vector-icons';
 import {

@@ -1,6 +1,6 @@
 import { View, Text, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import React from 'react';
-import { useSocialAuth } from '@/hooks/useSocialAuth';
+import { useSocialAuth } from '@/Hooks/useSocialAuth';
 import { icons } from '@/constants/icons';
 
 export default function AuthScreen() {
