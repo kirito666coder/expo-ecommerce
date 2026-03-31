@@ -2,8 +2,14 @@ import { defineConfig } from 'eslint/config';
 import expo from 'eslint-config-expo/flat.js';
 import base from '../eslint.base.mjs';
 
+const baseWithoutPlugins = base.map((config) => {
+  if (!config.plugins) return config;
+  const { plugins, ...rest } = config;
+  return rest;
+});
+
 export default defineConfig([
-  ...base, // shared rules
+  ...baseWithoutPlugins, // shared rules
 
   ...expo, // expo / react-native rules
 

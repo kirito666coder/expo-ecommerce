@@ -1,11 +1,22 @@
 import { useAuth } from '@clerk/clerk-expo';
 import axios from 'axios';
 import { useEffect } from 'react';
+import Constants from 'expo-constants';
 
-const API_URl = 'http://172.22.176.1:5000/api';
+const getLocalApiUrl = () => {
+  const hostUri = Constants.expoConfig?.hostUri;
+
+  if (!hostUri) return 'http://localhost:5000/api';
+
+  const ip = hostUri.split(':')[0]; // 👉 extract IP
+
+  return `http://${ip}:5000/api`;
+};
+
+export const API_URL = getLocalApiUrl();
 
 const api = axios.create({
-  baseURL: API_URl,
+  baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
