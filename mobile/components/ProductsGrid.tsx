@@ -81,7 +81,7 @@ const ProductsGrid = ({ products, isLoading, isError }: ProductsGridProps) => {
           <Text className="ml-1 text-xs font-semibold text-white">
             {product.averageRating.toFixed(1)}
           </Text>
-          <Text className="text-text-secondary ml-1 text-xs">({product.totalReviews})</Text>
+          <Text className="ml-1 text-xs text-white">({product.totalReviews})</Text>
         </View>
 
         <View className="flex-row items-center justify-between">

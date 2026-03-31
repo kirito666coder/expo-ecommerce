@@ -11,26 +11,22 @@ export default function OrderSummary({ subtotal, shipping, tax, total }: OrderSu
   return (
     <View className="mt-6 px-6">
       <View className="bg-surface rounded-3xl p-5">
-        <Text className="text-text-primary mb-4 text-xl font-bold">Summary</Text>
+        <Text className="mb-4 text-xl font-bold text-white">Summary</Text>
 
         <View className="space-y-3">
           <View className="flex-row items-center justify-between">
-            <Text className="text-text-secondary text-base">Subtotal</Text>
-            <Text className="text-text-primary text-base font-semibold">
-              ${subtotal.toFixed(2)}
-            </Text>
+            <Text className="text-base text-white">Subtotal</Text>
+            <Text className="text-base font-semibold text-white">${subtotal.toFixed(2)}</Text>
           </View>
 
           <View className="flex-row items-center justify-between">
-            <Text className="text-text-secondary text-base">Shipping</Text>
-            <Text className="text-text-primary text-base font-semibold">
-              ${shipping.toFixed(2)}
-            </Text>
+            <Text className="text-base text-white">Shipping</Text>
+            <Text className="text-base font-semibold text-white">${shipping.toFixed(2)}</Text>
           </View>
 
           <View className="flex-row items-center justify-between">
-            <Text className="text-text-secondary text-base">Tax</Text>
-            <Text className="text-text-primary text-base font-semibold">${tax.toFixed(2)}</Text>
+            <Text className="text-base text-white">Tax</Text>
+            <Text className="text-base font-semibold text-white">${tax.toFixed(2)}</Text>
           </View>
 
           {/* Divider */}
@@ -38,7 +34,7 @@ export default function OrderSummary({ subtotal, shipping, tax, total }: OrderSu
 
           {/* Total */}
           <View className="flex-row items-center justify-between">
-            <Text className="text-text-primary text-lg font-bold">Total</Text>
+            <Text className="text-lg font-bold text-white">Total</Text>
             <Text className="text-primary text-2xl font-bold">${total.toFixed(2)}</Text>
           </View>
         </View>

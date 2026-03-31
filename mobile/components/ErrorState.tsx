@@ -15,8 +15,8 @@ export function ErrorState({
   return (
     <View className="bg-background flex-1 items-center justify-center px-6">
       <Ionicons name="alert-circle-outline" size={64} color="#FF6B6B" />
-      <Text className="text-text-primary mt-4 text-xl font-semibold">{title}</Text>
-      <Text className="text-text-secondary mt-2 text-center">{description}</Text>
+      <Text className="mt-4 text-xl font-semibold text-white">{title}</Text>
+      <Text className="mt-2 text-center text-white">{description}</Text>
       {onRetry && (
         <TouchableOpacity onPress={onRetry} className="bg-primary mt-4 rounded-xl px-6 py-3">
           <Text className="text-background font-semibold">Try Again</Text>
