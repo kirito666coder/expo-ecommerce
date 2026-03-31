@@ -30,7 +30,9 @@ export default function ShopScreen() {
     }
 
     if (searchQuery.trim()) {
-      filtered = filtered.filter((product) => product.name.toLowerCase().includes(searchQuery));
+      filtered = filtered.filter((product) =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
     }
 
     return filtered;

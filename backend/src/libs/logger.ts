@@ -1,7 +1,16 @@
 import winston from 'winston';
 
+const levels = {
+  error: 0,
+  warn: 1,
+  info: 2,
+  http: 3,
+  debug: 4,
+};
+
 const logger = winston.createLogger({
-  level: 'info',
+  levels,
+  level: 'http',
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.colorize(),
