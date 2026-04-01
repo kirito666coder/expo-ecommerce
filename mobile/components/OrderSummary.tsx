@@ -10,7 +10,7 @@ interface OrderSummaryProps {
 export default function OrderSummary({ subtotal, shipping, tax, total }: OrderSummaryProps) {
   return (
     <View className="mt-6 px-6">
-      <View className="bg-surface rounded-3xl p-5">
+      <View className="rounded-3xl p-5 text-zinc-900">
         <Text className="mb-4 text-xl font-bold text-white">Summary</Text>
 
         <View className="space-y-3">
@@ -35,7 +35,7 @@ export default function OrderSummary({ subtotal, shipping, tax, total }: OrderSu
           {/* Total */}
           <View className="flex-row items-center justify-between">
             <Text className="text-lg font-bold text-white">Total</Text>
-            <Text className="text-primary text-2xl font-bold">${total.toFixed(2)}</Text>
+            <Text className="text-2xl font-bold text-white">${total.toFixed(2)}</Text>
           </View>
         </View>
       </View>

@@ -16,8 +16,8 @@ function Sidebar() {
       <div className="bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64 flex min-h-full flex-col items-start">
         <div className="w-full p-4">
           <div className="flex items-center gap-3">
-            <div className="bg-primary flex size-10 shrink-0 items-center justify-center rounded-xl">
-              <ShoppingBagIcon className="text-primary-content h-6 w-6" />
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-xl text-zinc-900">
+              <ShoppingBagIcon className="text-white-content h-6 w-6" />
             </div>
             <span className="is-drawer-close:hidden text-xl font-bold">Admin</span>
           </div>
@@ -30,7 +30,7 @@ function Sidebar() {
               <li key={item.path}>
                 <Link
                   href={item.path}
-                  className={`is-drawer-close:tooltip is-drawer-close:tooltip-right ${isActive ? 'bg-primary text-primary-content' : ''} `}
+                  className={`is-drawer-close:tooltip is-drawer-close:tooltip-right ${isActive ? 'text-white-content text-zinc-900' : ''} `}
                 >
                   {item.icon}
                   <span className="is-drawer-close:hidden">{item.name}</span>

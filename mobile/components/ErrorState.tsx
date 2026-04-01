@@ -18,7 +18,7 @@ export function ErrorState({
       <Text className="mt-4 text-xl font-semibold text-white">{title}</Text>
       <Text className="mt-2 text-center text-white">{description}</Text>
       {onRetry && (
-        <TouchableOpacity onPress={onRetry} className="bg-primary mt-4 rounded-xl px-6 py-3">
+        <TouchableOpacity onPress={onRetry} className="mt-4 rounded-xl px-6 py-3 text-zinc-900">
           <Text className="text-background font-semibold">Try Again</Text>
         </TouchableOpacity>
       )}

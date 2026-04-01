@@ -51,7 +51,7 @@ export default function dashboard() {
       <div className="stats stats-vertical lg:stats-horizontal bg-base-100 w-full shadow">
         {statsCards.map((stat) => (
           <div key={stat.name} className="stat">
-            <div className="stat-figure text-primary">{stat.icon}</div>
+            <div className="stat-figure text-white">{stat.icon}</div>
             <div className="stat-title">{stat.name}</div>
             <div className="stat-value">{stat.value}</div>
           </div>

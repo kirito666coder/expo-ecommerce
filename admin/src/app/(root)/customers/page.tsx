@@ -58,7 +58,7 @@ function CustomersPage() {
                     <tr key={customer._id}>
                       <td className="flex items-center gap-3">
                         <div className="avatar placeholder">
-                          <div className="bg-primary text-primary-content w-12 rounded-full">
+                          <div className="text-white-content w-12 rounded-full text-zinc-900">
                             <img
                               src={customer.imageUrl}
                               alt={customer.name}
