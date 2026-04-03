@@ -6,11 +6,11 @@ import Constants from 'expo-constants';
 const getLocalApiUrl = () => {
   const hostUri = Constants.expoConfig?.hostUri;
 
-  if (!hostUri) return 'http://localhost:5000/api';
+  if (!hostUri) return 'http://localhost:4000/api';
 
   const ip = hostUri.split(':')[0]; // 👉 extract IP
 
-  return `http://${ip}:5000/api`;
+  return `http://${ip}:4000/api`;
 };
 
 export const API_URL = getLocalApiUrl();
