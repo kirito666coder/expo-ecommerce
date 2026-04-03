@@ -8,7 +8,7 @@ const rawPort = process.env.PORT;
 const parsedPort = rawPort === undefined ? NaN : Number(rawPort);
 
 const PORT =
-  Number.isInteger(parsedPort) && parsedPort >= 0 && parsedPort <= 65535 ? parsedPort : 5000;
+  Number.isInteger(parsedPort) && parsedPort >= 0 && parsedPort <= 65535 ? parsedPort : 4000;
 
 const HOST = '0.0.0.0';
 

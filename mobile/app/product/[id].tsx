@@ -120,15 +120,15 @@ const ProductDetailScreen = () => {
             </View>
           </View>
 
-          <Text className="text-text-primary mb-3 text-3xl font-bold">{product.name}</Text>
+          <Text className="mb-3 text-3xl font-bold text-white">{product.name}</Text>
 
           <View className="mb-4 flex-row items-center">
             <View className="bg-surface flex-row items-center rounded-full px-3 py-2">
               <Ionicons name="star" size={16} color="#FFC107" />
-              <Text className="text-text-primary ml-1 mr-2 font-bold">
+              <Text className="ml-1 mr-2 font-bold text-white">
                 {product.averageRating.toFixed(1)}
               </Text>
-              <Text className="text-text-secondary text-sm">({product.totalReviews} reviews)</Text>
+              <Text className="text-sm text-white">({product.totalReviews} reviews)</Text>
             </View>
             {inStock ? (
               <View className="ml-3 flex-row items-center">
@@ -150,7 +150,7 @@ const ProductDetailScreen = () => {
           </View>
 
           <View className="mb-6">
-            <Text className="text-text-primary mb-3 text-lg font-bold">Quantity</Text>
+            <Text className="mb-3 text-lg font-bold text-white">Quantity</Text>
 
             <View className="flex-row items-center">
               <TouchableOpacity
@@ -162,7 +162,7 @@ const ProductDetailScreen = () => {
                 <Ionicons name="remove" size={24} color={inStock ? '#FFFFFF' : '#666'} />
               </TouchableOpacity>
 
-              <Text className="text-text-primary mx-6 text-xl font-bold">{quantity}</Text>
+              <Text className="mx-6 text-xl font-bold text-white">{quantity}</Text>
 
               <TouchableOpacity
                 className="bg-primary h-12 w-12 items-center justify-center rounded-full"
@@ -184,8 +184,8 @@ const ProductDetailScreen = () => {
           </View>
 
           <View className="mb-8">
-            <Text className="text-text-primary mb-3 text-lg font-bold">Description</Text>
-            <Text className="text-text-secondary text-base leading-6">{product.description}</Text>
+            <Text className="mb-3 text-lg font-bold text-white">Description</Text>
+            <Text className="text-base leading-6 text-white">{product.description}</Text>
           </View>
         </View>
       </ScrollView>
@@ -193,7 +193,7 @@ const ProductDetailScreen = () => {
       <View className="bg-background/95 border-surface absolute bottom-0 left-0 right-0 border-t px-6 py-4 pb-8 backdrop-blur-xl">
         <View className="flex-row items-center gap-3">
           <View className="flex-1">
-            <Text className="text-text-secondary mb-1 text-sm">Total Price</Text>
+            <Text className="mb-1 text-sm text-white">Total Price</Text>
             <Text className="text-primary text-2xl font-bold">
               ${(product.price * quantity).toFixed(2)}
             </Text>
@@ -213,7 +213,7 @@ const ProductDetailScreen = () => {
                 <Ionicons name="cart" size={24} color={!inStock ? '#666' : '#121212'} />
                 <Text
                   className={`ml-2 text-lg font-bold ${
-                    !inStock ? 'text-text-secondary' : 'text-background'
+                    !inStock ? 'text-white' : 'text-background'
                   }`}
                 >
                   {!inStock ? 'Out of Stock' : 'Add to Cart'}
@@ -234,8 +234,8 @@ function ErrorUI() {
     <SafeScreen>
       <View className="flex-1 items-center justify-center px-6">
         <Ionicons name="alert-circle-outline" size={64} color="#FF6B6B" />
-        <Text className="text-text-primary mt-4 text-xl font-semibold">Product not found</Text>
-        <Text className="text-text-secondary mt-2 text-center">
+        <Text className="mt-4 text-xl font-semibold text-white">Product not found</Text>
+        <Text className="mt-2 text-center text-white">
           This product may have been removed or doesn&apos;t exist
         </Text>
         <TouchableOpacity
@@ -254,7 +254,7 @@ function LoadingUI() {
     <SafeScreen>
       <View className="flex-1 items-center justify-center">
         <ActivityIndicator size="large" color="#1DB954" />
-        <Text className="text-text-secondary mt-4">Loading product...</Text>
+        <Text className="mt-4 text-white">Loading product...</Text>
       </View>
     </SafeScreen>
   );
