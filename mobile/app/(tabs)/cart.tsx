@@ -75,6 +75,7 @@ const CartScreen = () => {
   const handleProceedWithPayment = async (selectedAddress: Address) => {
     setAddressModalVisible(false);
 
+    // log chechkout initiated
     Sentry.logger.info('Checkout initiated', {
       itemCount: cartItemCount,
       total: total.toFixed(2),
