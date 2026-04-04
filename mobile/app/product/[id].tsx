@@ -93,7 +93,7 @@ const ProductDetailScreen = () => {
               setSelectedImageIndex(index);
             }}
           >
-            {product.images.map(({ url }: { url: string }, index: number) => (
+            {product.images.map((url: string, index: number) => (
               <View key={index} style={{ width }}>
                 <Image source={url} style={{ width, height: 400 }} contentFit="cover" />
               </View>

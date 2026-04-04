@@ -1,4 +1,5 @@
 import { useSSO } from '@clerk/clerk-expo';
+import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert } from 'react-native';
 
@@ -13,6 +14,7 @@ export function useSocialAuth() {
       const { createdSessionId, setActive } = await startSSOFlow({ strategy });
       if (createdSessionId && setActive) {
         await setActive({ session: createdSessionId });
+        router.replace('/(tabs)');
       }
     } catch {
       Alert.alert(`Error Failed to sign in with ${strategy}. Please try again.`);

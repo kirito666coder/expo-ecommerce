@@ -81,7 +81,7 @@ function WishlistScreen() {
               >
                 <View className="flex-row p-4">
                   <Image
-                    source={item.images[0].url}
+                    source={item.images[0]}
                     className="bg-background-lighter rounded-2xl"
                     style={{ width: 96, height: 96, borderRadius: 8 }}
                   />

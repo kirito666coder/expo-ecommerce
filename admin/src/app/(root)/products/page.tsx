@@ -54,7 +54,7 @@ function ProductsPage() {
                 <div className="flex items-center gap-6">
                   <div className="avatar">
                     <div className="w-20 rounded-xl">
-                      <img src={`${product.images?.[0]?.url}`} alt={product.name} />
+                      <img src={`${product.images}`} alt={product.name} />
                     </div>
                   </div>
 

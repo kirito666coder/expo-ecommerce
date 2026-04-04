@@ -30,7 +30,7 @@ export const createProductController = asyncHandler(async (req, res) => {
     price: parseFloat(price),
     stock: parseFloat(stock),
     category,
-    images,
+    images: images.map((img: { url: string }) => img.url),
   });
 
   res.status(201).json(product);

@@ -169,7 +169,7 @@ const CartScreen = () => {
               <View className="flex-row p-4">
                 <View className="relative">
                   <Image
-                    source={item.product.images[0].url}
+                    source={item.product.images[0]}
                     className="bg-background-lighter"
                     contentFit="cover"
                     style={{ width: 112, height: 112, borderRadius: 16 }}
