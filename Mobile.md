@@ -1,5 +1,9 @@
 # Mobile App (`/mobile`)
 
+**Navigation**: [Main README](./README.md) • **[Mobile App](./Mobile.md)** • [Admin Dashboard](./Admin.md) • [Backend API](./Backend.md)
+
+---
+
 The consumer-facing mobile application for the E-Commerce platform. Built natively for iOS and Android using Expo and React Native, granting customers an intuitive application to browse products, manage their cart, place orders, and track deliveries.
 
 ## Tech Stack & Libraries

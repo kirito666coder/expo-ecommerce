@@ -1,5 +1,9 @@
 # Backend API (`/backend`)
 
+**Navigation**: [Main README](./README.md) • [Mobile App](./Mobile.md) • [Admin Dashboard](./Admin.md) • **[Backend API](./Backend.md)**
+
+---
+
 The Express.js REST API providing backend services, authentication integration, and database access for both the mobile application and admin dashboard.
 
 ## Tech Stack & Libraries

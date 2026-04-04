@@ -1,5 +1,9 @@
 # Expo E-Commerce Platform
 
+**Navigation**: **[Main README](./README.md)** • [Mobile App](./Mobile.md) • [Admin Dashboard](./Admin.md) • [Backend API](./Backend.md)
+
+---
+
 ![Expo E-Commerce Banner](./expo-ecommerce.png)
 
 A full-stack e-commerce solution built with Expo (React Native), Next.js, and Express.js. This repository is structured as a monorepo containing three main applications: a mobile client, an admin dashboard, and a backend API.
@@ -22,9 +26,9 @@ A full-stack e-commerce solution built with Expo (React Native), Next.js, and Ex
 
 ## Project Structure
 
-- `/mobile` - The consumer-facing mobile application built with Expo and React Native.
-- `/admin` - The web-based admin dashboard to manage the platform built with Next.js.
-- `/backend` - The RESTful backend API built with Express.js and MongoDB.
+- **[Mobile Application](./Mobile.md)** (`/mobile`) - The consumer-facing mobile application built with Expo and React Native.
+- **[Admin Dashboard](./Admin.md)** (`/admin`) - The web-based admin dashboard to manage the platform built with Next.js.
+- **[Backend API](./Backend.md)** (`/backend`) - The RESTful backend API built with Express.js and MongoDB.
 
 ---
 
@@ -70,7 +74,7 @@ A full-stack e-commerce solution built with Expo (React Native), Next.js, and Ex
 
 ## Environment Variables
 
-You need to set up `.env` files for each workspace. Refer to the respective READMEs in `/mobile`, `/admin`, and `/backend` for specific variable details.
+You need to set up `.env` files for each workspace. Refer to the respective documentation in [Mobile.md](./Mobile.md), [Admin.md](./Admin.md), and [Backend.md](./Backend.md) for specific variable details.
 
 ---
 

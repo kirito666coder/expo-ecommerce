@@ -1,5 +1,9 @@
 # Admin Web Dashboard (`/admin`)
 
+**Navigation**: [Main README](./README.md) • [Mobile App](./Mobile.md) • **[Admin Dashboard](./Admin.md)** • [Backend API](./Backend.md)
+
+---
+
 The internal web-based dashboard for managing the E-Commerce platform. Features tools for tracking products, managing orders, viewing customers, and analyzing business statistics.
 
 ## Tech Stack & Libraries
