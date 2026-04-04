@@ -30,7 +30,7 @@ function Sidebar() {
               <li key={item.path}>
                 <Link
                   href={item.path}
-                  className={`is-drawer-close:tooltip is-drawer-close:tooltip-right ${isActive ? 'text-white-content text-zinc-900' : ''} `}
+                  className={`is-drawer-close:tooltip is-drawer-close:tooltip-right ${isActive ? 'text-white-content text-zinc-100' : 'text-zinc-500'} `}
                 >
                   {item.icon}
                   <span className="is-drawer-close:hidden">{item.name}</span>

@@ -48,7 +48,7 @@ const ProductsGrid = ({ products, isLoading, isError }: ProductsGridProps) => {
     >
       <View className="relative">
         <Image
-          source={{ uri: product?.images[0]?.url || 'https://via.placeholder.com/150' }}
+          source={{ uri: product.images[0] }}
           className="bg-background-lighter h-44 w-full"
           resizeMode="cover"
         />
@@ -86,7 +86,7 @@ const ProductsGrid = ({ products, isLoading, isError }: ProductsGridProps) => {
         </View>
 
         <View className="flex-row items-center justify-between">
-          <Text className="text-lg font-bold text-white">${product.price.toFixed(2)}</Text>
+          <Text className="text-lg font-bold text-white">${product?.price?.toFixed(2)}</Text>
 
           <TouchableOpacity
             className="h-8 w-8 items-center justify-center rounded-full bg-zinc-400"
